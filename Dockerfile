@@ -42,7 +42,6 @@ RUN groupadd -r ff && useradd -r -g ff -G audio,video ff \
 ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/GBPCEFwr64.deb
 
 # ENTRYPOINT ["/etc/init.d/warsaw start"]
-COPY local.conf /etc/fonts/local.conf
 
 # Run firefox as non privileged user
 USER ff
