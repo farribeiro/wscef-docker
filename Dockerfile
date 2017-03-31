@@ -33,13 +33,13 @@ RUN apt-get install -y \
 	&& rm -rf /src/*.deb
 
 # Add ff  user
-RUN groupadd -r chrome && useradd -r -g chrome -G audio,video chrome \
-    && mkdir -p /home/chrome/Downloads && chown -R chrome:chrome /home/chrome
+RUN groupadd -r ff && useradd -r -g ff -G audio,video ff \
+    && chown -R ff:ff /home/ff
 
 COPY local.conf /etc/fonts/local.conf
 
 # Run firefox as non privileged user
-USER chrome
+USER ff
 
 # Autorun chrome
 ENTRYPOINT [ "google-chrome" ]
