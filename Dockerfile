@@ -26,24 +26,8 @@ ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/GB
 # Install Firefox
 RUN apt-get update 
 RUN apt-get install -y \
-	apt-transport-https \
-	ca-certificates \
-	curl \
-	gnupg \
-	hicolor-icon-theme \
-	libgl1-mesa-dri \
-	libgl1-mesa-glx \
-	libpulse0 \
-	libv4l-0 \
-	fonts-symbola \
 	--no-install-recommends \
-	&& curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
-	&& echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
-	&& apt-get update && apt-get install -y \
-	google-chrome-stable \
 	--no-install-recommends \
-	# && google-chrome --download-file https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb \
-	# && dpkg GBPCEFwr64\
 	&& apt-get purge --auto-remove -y curl \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /src/*.deb
