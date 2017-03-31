@@ -29,6 +29,7 @@ RUN apt-get install -y \
 	firefox \
 	firefox-locale-pt \
 	--no-install-recommends
+	# firefox -CreateProfile default
 	&& apt-get purge --auto-remove -y curl \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /src/*.deb
@@ -39,11 +40,12 @@ RUN groupadd -r ff && useradd -r -g ff -G audio,video ff \
 
 ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/GBPCEFwr64.deb
 
+# ENTRYPOINT ["/etc/init.d/warsaw start"]
 COPY local.conf /etc/fonts/local.conf
 
 # Run firefox as non privileged user
 USER ff
 
 # Autorun chrome
-ENTRYPOINT [ "google-chrome" ]
-CMD [ "--user-data-dir=/data" ]
+# ENTRYPOINT [ "/usr/local/bin/warsaw/core && firefox" ]
+# CMD [ "-private-window http://www.caixa.gov.br/" ]
