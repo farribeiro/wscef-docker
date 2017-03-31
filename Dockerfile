@@ -1,5 +1,6 @@
 # Run Warsaw in a container
 
+# First run:
 #
 # docker run -it \
 #	--net host \ # may as well YOLO
@@ -12,6 +13,9 @@
 #	--name ws-cef \
 #	farribeiro/ws-cef
 #
+# Other run:
+#
+# docker start ws-cef
 
 # Base docker image
 FROM ubuntu
