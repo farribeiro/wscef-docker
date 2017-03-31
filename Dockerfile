@@ -21,8 +21,6 @@
 FROM ubuntu
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>>"
 
-ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/GBPCEFwr64.deb
-
 # Install Firefox
 RUN apt-get update 
 RUN apt-get install -y \
@@ -38,6 +36,8 @@ RUN apt-get install -y \
 # Add ff  user
 RUN groupadd -r ff && useradd -r -g ff -G audio,video ff \
     && chown -R ff:ff /home/ff
+
+ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/GBPCEFwr64.deb
 
 COPY local.conf /etc/fonts/local.conf
 
