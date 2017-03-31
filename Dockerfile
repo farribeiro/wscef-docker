@@ -7,16 +7,11 @@
 #	--memory 512mb \ # max memory it can use
 #	-v /tmp/.X11-unix:/tmp/.X11-unix \ # mount the X11 socket
 #	-e DISPLAY=unix$DISPLAY \
-#	-v $HOME/Downloads:/home/chrome/Downloads \
-#	-v $HOME/.config/google-chrome/:/data \ # if you want to save state
-#	--security-opt seccomp=$HOME/chrome.json \
 #	--device /dev/snd \ # so we have sound
 #	-v /dev/shm:/dev/shm \
 #	--name chrome \
 #	jess/chrome
 #
-# You will want the custom seccomp profile:
-# 	wget https://raw.githubusercontent.com/jfrazelle/dotfiles/master/etc/docker/seccomp/chrome.json -O ~/chrome.json
 
 # Base docker image
 FROM ubuntu
