@@ -1,4 +1,4 @@
-# Run Chrome in a container
+# Run Warsaw in a container
 
 #
 # docker run -it \
@@ -24,7 +24,7 @@ LABEL maintainer "Jessie Frazelle <jess@linux.com>"
 
 ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/GBPCEFwr64.deb
 
-# Install Chrome
+# Install Firefox
 RUN apt-get update 
 RUN apt-get install -y \
 	apt-transport-https \
@@ -49,13 +49,13 @@ RUN apt-get install -y \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /src/*.deb
 
-# Add chrome user
+# Add ff  user
 RUN groupadd -r chrome && useradd -r -g chrome -G audio,video chrome \
     && mkdir -p /home/chrome/Downloads && chown -R chrome:chrome /home/chrome
 
 COPY local.conf /etc/fonts/local.conf
 
-# Run Chrome as non privileged user
+# Run firefox as non privileged user
 USER chrome
 
 # Autorun chrome
