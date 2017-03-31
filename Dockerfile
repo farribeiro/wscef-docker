@@ -30,7 +30,7 @@ RUN apt-get update && apt-get upgrade -y \
 	firefox-locale-pt \
 	--no-install-recommends
 	# firefox -CreateProfile default
-	&& apt-get purge --auto-remove -y curl \
+	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /src/*.deb
 
