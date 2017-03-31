@@ -1,0 +1,9 @@
+services:
+  - docker
+
+install:
+  - docker build -t ws-cef .
+  - docker run -it ws-cef bash
+
+scripts:
+  - docker ps -a | grep -q ws-cef
