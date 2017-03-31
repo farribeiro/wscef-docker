@@ -19,7 +19,7 @@
 
 # Base docker image
 FROM ubuntu
-LABEL maintainer "Jessie Frazelle <jess@linux.com>"
+LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>>"
 
 ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/GBPCEFwr64.deb
 
