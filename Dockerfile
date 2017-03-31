@@ -9,8 +9,8 @@
 #	-e DISPLAY=unix$DISPLAY \
 #	--device /dev/snd \ # so we have sound
 #	-v /dev/shm:/dev/shm \
-#	--name chrome \
-#	jess/chrome
+#	--name ws-cef \
+#	farribeiro/ws-cef
 #
 
 # Base docker image
