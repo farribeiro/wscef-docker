@@ -28,6 +28,10 @@ RUN apt-get update
 RUN apt-get install -y \
 	--no-install-recommends \
 	--no-install-recommends \
+	openssl \
+	libnss3-tools \
+	firefox \
+	firefox-locale-pt \
 	&& apt-get purge --auto-remove -y curl \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /src/*.deb
