@@ -5,7 +5,7 @@ then
   firefox -CreateProfile default \&&
   apt -y install /src/GBPCEFwr64.deb
 else
-  su - /etc/ \&&
+  su - /etc/init.d/warsaw start \&&
   /usr/local/bin/warsaw/core \&&
   firefox
 fi
