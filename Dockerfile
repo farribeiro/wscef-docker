@@ -42,5 +42,7 @@ ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/GB
 # Run firefox as non privileged user
 USER ff
 
+COPY startup.sh /home/ff/startup.sh
+
 # Autorun chrome
 CMD [ "/home/startup.sh" ]
