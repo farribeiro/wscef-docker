@@ -19,7 +19,7 @@
 
 # Base docker image
 FROM ubuntu
-LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>>"
+LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
 # Install Firefox
 RUN apt-get update && apt-get upgrade -y \
