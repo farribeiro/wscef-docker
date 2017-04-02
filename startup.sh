@@ -1,5 +1,8 @@
 #!/bin/bash
 
+su -c "apt-get update \
+  && apt-get upgrade -y"
+
 if [ ! -d ${Home}/.mozilla ]
 then
   firefox -CreateProfile default \
