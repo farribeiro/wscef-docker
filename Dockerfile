@@ -11,7 +11,7 @@
 #	--device /dev/snd \ # so we have sound
 #	-v /dev/shm:/dev/shm \
 #	--name ws-cef \
-#	farribeiro/ws-cef
+#	farribeiro/wscef-docker
 #
 # Other run:
 #
