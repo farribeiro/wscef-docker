@@ -38,8 +38,8 @@ RUN apt-get update \
 COPY startup.sh /home/ff/startup.sh
 
 # Add ff  user
-RUN groupadd -r ff \
-    && useradd -r -g ff -G audio,video ff \
+RUN groupadd -g 1000 -r ff \
+    && useradd -u 1000 -r -g ff -G audio,video ff \
     && mkdir -p /home/ff \
     && chown -R ff:ff /home/ff \
     && chmod 744 /home/ff/startup.sh \
