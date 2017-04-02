@@ -43,5 +43,4 @@ ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/GB
 USER ff
 
 # Autorun chrome
-# ENTRYPOINT [ "/usr/local/bin/warsaw/core && firefox" ]
-# CMD [ "-private-window http://www.caixa.gov.br/" ]
+CMD [ "/home/startup.sh" ]
