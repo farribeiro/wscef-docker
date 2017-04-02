@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ ! -d ${Home}/.mozilla ]
 then
   firefox \&&
