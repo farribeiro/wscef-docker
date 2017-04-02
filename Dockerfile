@@ -33,6 +33,8 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /src/*.deb
 
+COPY startup.sh /home/ff/startup.sh
+
 # Add ff  user
 RUN groupadd -r ff && useradd -r -g ff -G audio,video ff \
     && mkdir -p /home/ff \
@@ -42,8 +44,6 @@ ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/GB
 
 # Run firefox as non privileged user
 USER ff
-
-COPY startup.sh /home/ff/startup.sh
 
 # Autorun chrome
 CMD [ "/home/ff/startup.sh" ]
