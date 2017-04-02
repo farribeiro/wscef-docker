@@ -3,9 +3,9 @@
 if [ ! -d ${Home}/.mozilla ]
 then
   firefox -CreateProfile default \&&
-  apt -y install /src/GBPCEFwr64.deb
+  su -c "apt -y install /src/GBPCEFwr64.deb" \&&
 else
-  su - /etc/init.d/warsaw start \&&
+  su -c "/etc/init.d/warsaw start" \&&
   /usr/local/bin/warsaw/core \&&
   firefox
 fi
