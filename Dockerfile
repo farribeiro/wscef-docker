@@ -46,4 +46,4 @@ USER ff
 COPY startup.sh /home/ff/startup.sh
 
 # Autorun chrome
-CMD [ "/home/startup.sh" ]
+CMD [ "/home/ff/startup.sh" ]
