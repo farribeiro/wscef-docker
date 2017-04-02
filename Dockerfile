@@ -22,12 +22,12 @@ FROM ubuntu
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
 # Install Firefox
-RUN apt-get update
+RUN apt-get update \
 	&& apt-get upgrade -y \
 	&& apt-get install -y \
 	firefox \
 	firefox-locale-pt \
-	--no-install-recommends
+	--no-install-recommends \
 	# firefox -CreateProfile default
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/* \
