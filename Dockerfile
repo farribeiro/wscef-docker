@@ -22,7 +22,8 @@ FROM ubuntu
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
 # Install Firefox
-RUN apt-get update && apt-get upgrade -y \
+RUN apt-get update
+	&& apt-get upgrade -y \
 	&& apt-get install -y \
 	firefox \
 	firefox-locale-pt \
