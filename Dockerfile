@@ -24,8 +24,6 @@ LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>>"
 # Install Firefox
 RUN apt-get update && apt-get upgrade -y \
 	&& apt-get install -y \
-	openssl \
-	libnss3-tools \
 	firefox \
 	firefox-locale-pt \
 	--no-install-recommends
