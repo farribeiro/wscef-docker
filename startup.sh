@@ -11,5 +11,5 @@ then
 else
   su -c "/etc/init.d/warsaw start" \
   && /usr/local/bin/warsaw/core \
-  && firefox
+  && firefox -private-window www.caixa.gov.br
 fi
