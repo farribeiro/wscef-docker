@@ -3,7 +3,7 @@
 su -c "apt-get update \
   && apt-get upgrade -y"
 
-if [ ! -d ${Home}/.mozilla ]
+if [ ! -d $HOME/.mozilla ]
 then
   firefox -CreateProfile default \
   && su -c "apt -y install /src/GBPCEFwr64.deb" \
