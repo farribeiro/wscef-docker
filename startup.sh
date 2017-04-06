@@ -1,12 +1,23 @@
 #!/bin/bash
 
-su -c "apt-get update \
-  && apt-get upgrade -y"
+export LANG="pt_BR.UTF-8"
 
-if [ ! -d $HOME/.mozilla ]
+if [ -n "${XAUTHORITY}" ] && [ -n "${HOST_HOSTNAME}" ]
+then
+  if [ "${HOSTNAME}" != "${HOST_HOSTNAME}" ]
+  then
+    [ -f ${XAUTHORITY} ] || touch ${XAUTHORITY}
+    xauth add ${HOSTNAME}/unix${DISPLAY} . \
+    $(xauth -f /tmp/.docker.xauth list ${HOST_HOSTNAME}/unix${DISPLAY} | awk '{ print $NF }')
+  else
+    cp /tmp/.docker.xauth ${XAUTHORITY}
+  fi
+fi
+
+if [ ! -d ~/.mozilla ]
 then
   firefox -CreateProfile default \
-  && su -c "apt -y install /src/GBPCEFwr64.deb" \
+  && su -c "apt update && apt -y upgrade && apt -y install /src/GBPCEFwr64.deb" \
   && exit 3
 else
   su -c "/etc/init.d/warsaw start" \
