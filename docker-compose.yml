@@ -10,7 +10,6 @@ services:
       - HOST_HOSTNAME=${HOSTNAME}
     cpuset: '0'
     mem_limit: 512M
-    restart: 'on-failure:1'
     volumes:
       - /dev/shm:/dev/shm
       - /tmp/.X11-unix:/tmp/.X11-unix
