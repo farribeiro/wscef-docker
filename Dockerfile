@@ -26,10 +26,12 @@ LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 RUN apt-get update \
 	&& apt-get upgrade -y \
 	&& apt-get install -y \
+	language-pack-pt \
 	openssl \
 	libnss3-tools \
 	firefox \
 	firefox-locale-pt \
+	xauth \
 	--no-install-recommends \
 	# firefox -CreateProfile default
 	&& apt-get purge --auto-remove -y \

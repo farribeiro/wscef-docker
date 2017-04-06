@@ -1,9 +1,8 @@
 services:
   - docker
 
-install:
-  - docker build -t ws-cef .
-  # - docker run -it ws-cef bash
+before_script:
+  - docker-compose build
 
-scripts:
-  - docker ps -a | grep -q ws-cef
+script:
+  - docker-compose run wscef
