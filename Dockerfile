@@ -44,9 +44,8 @@ COPY startup.sh /home/ff/startup.sh
 RUN groupadd -g 1000 -r ff \
     && useradd -u 1000 -r -g ff -G audio,video ff \
     && mkdir -p /home/ff \
-    && chown -R ff:ff /home/ff \
     && chmod 744 /home/ff/startup.sh \
-    && chown ff:ff /home/ff/startup.sh \
+    && chown -R ff:ff /home/ff \
     && passwd -d root
 
 ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/GBPCEFwr64.deb
