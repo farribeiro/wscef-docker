@@ -1,23 +1,5 @@
 # Run Warsaw in a container
 
-# First run:
-#
-# docker run -it \
-#	--net host \ # may as well YOLO
-#	--cpuset-cpus 0 \ # control the cpu
-#	--memory 512mb \ # max memory it can use
-#	-v /tmp/.X11-unix:/tmp/.X11-unix \ # mount the X11 socket
-#	-e DISPLAY=unix$DISPLAY \
-#	--device /dev/snd \ # so we have sound
-#	-v /dev/shm:/dev/shm \
-#	--name ws-cef \
-#	--restart=on-failure:1
-#	farribeiro/wscef-docker
-#
-# Other run:
-#
-# docker start ws-cef
-
 # Base docker image
 FROM ubuntu
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
