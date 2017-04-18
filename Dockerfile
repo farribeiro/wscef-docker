@@ -15,7 +15,6 @@ RUN apt-get update \
 	firefox-locale-pt \
 	xauth \
 	--no-install-recommends \
-	# firefox -CreateProfile default
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /src/*.deb
