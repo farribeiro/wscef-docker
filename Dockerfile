@@ -26,6 +26,7 @@ RUN apt-get update \
 
 ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/
 COPY startup.sh /home/ff/
+
 ADD	\
 	# https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libjbig0_2.0-2_amd64.deb \
 	https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libtiff4_3.9.6-6ubuntu1_amd64.deb \
