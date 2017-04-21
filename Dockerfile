@@ -24,8 +24,6 @@ RUN apt-get update \
 	&& rm -rf /src/*.deb
 
 
-ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/
-COPY startup.sh /home/ff/
 
 ADD	\
 	# https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libjbig0_2.0-2_amd64.deb \
@@ -41,6 +39,9 @@ ADD	\
 RUN find /src/ -type f -exec apt -y install {} \;
 
 ADD http://www.iti.gov.br/images/middlewares/safesignidentityclient_3.0.77-Ubuntu_amd64.deb /src/safesignidentityclient_3.0.77-Ubuntu_amd64.deb
+
+ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/
+COPY startup.sh /home/ff/
 
 # Add ff  user
 RUN groupadd -g 1000 -r ff \
