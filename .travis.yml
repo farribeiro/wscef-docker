@@ -4,8 +4,8 @@ services:
 before_script:
   - docker-compose build
 
-script:
-  - docker-compose run wscef
+# script:
+  # - docker-compose run wscef
 
 after_success:
   - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
