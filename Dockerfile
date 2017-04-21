@@ -40,6 +40,7 @@ ADD	\
 
 RUN find /src/ -type f -exec apt -y install {} \;
 
+ADD http://www.iti.gov.br/images/middlewares/safesignidentityclient_3.0.77-Ubuntu_amd64.deb /src/safesignidentityclient_3.0.77-Ubuntu_amd64.deb
 
 # Add ff  user
 RUN groupadd -g 1000 -r ff \
