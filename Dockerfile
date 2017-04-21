@@ -43,6 +43,8 @@ ADD http://www.iti.gov.br/images/middlewares/safesignidentityclient_3.0.77-Ubunt
 ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/
 COPY startup.sh /home/ff/
 
+RUN apt -y install /src/safesignidentityclient_3.0.77-Ubuntu_amd64.deb
+
 # Add ff  user
 RUN groupadd -g 1000 -r ff \
 	&& useradd -u 1000 -r -g ff -G audio,video ff \
