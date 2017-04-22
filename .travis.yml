@@ -14,7 +14,7 @@ env:
   - secure: ltYxTDGt4mVwEnNaKAvEetHVqkaricZMI/3vsEdscUfJRfCd2aLz3QGw/73ycPxIxTek/tjpChCauyoHubX1ERoIW4zmzvKgHlC643CV2u8CrXLRm1G1HAabYtJV7SScvm3ra1b/8CQUEKEn1mtfJbScQ3+SsPpd1nPOA05PLWzU4rrou6VpL0V9My47RQaNGqer9fXRInNfhqsYIK9oMqVrW8KF6gRatK6SwAZjHh3I+GqYc90n9j79WJ9KQjSHYbZwhcRIB2FusQnBLYq/RHngonv1u7LZy+Zb1t9IMQQ4onzrvmXZRnpx9YAUN0EehBG2wm9yvD7otFMVvK3TosmiBdYrZgZCWU0VOc25hgf3/DszgMagIH9vB5KYxKLfQAlAEm9mLU/5tvk4sVjYJhkaXwoaYwNrUvi+7sHXt2MCjp14Lj7lvNwbd0ksNgNrHHNEX22bfBv96wMb6RMkwrXYmDGgxxFd15KDquWiAB5iaB5w6Csvfkf+ThsXom+fpnZTSleVXPz/9tLIvhG6JqHxnidqQ4aRS2Ue3LmE/eEQaSiny3hJSejPpwykdwVNa09dSf00r1nZ393vAtQeVZSIHnUj0jDQcpMosxbZ4GhXx5wap/XBcIEfJKzftyZVORIoGdFh9iD2/GaYu7HN7+XRodmoU4ZYQie9f2P+bao=
 
 before_script:
-  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
   - export REPO=farrbeiro/wscef-docker
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
   - docker build -f Dockerfile -t $REPO:$COMMIT .
