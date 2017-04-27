@@ -32,18 +32,17 @@ RUN apt-get update \
 	pcscd \
 	pcsc-tools \
 	--no-install-recommends \
+	&& apt -y install /src/*.deb \
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /src/*.deb
 
 
-RUN find /src/ -type f -exec apt -y install {} \;
 
 
 ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/
 COPY startup.sh /home/ff/
 
-RUN apt -y install /src/safesignidentityclient_3.0.77-Ubuntu_amd64.deb
 
 # Add ff  user
 RUN groupadd -g 1000 -r ff \
