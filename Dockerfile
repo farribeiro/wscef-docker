@@ -1,7 +1,7 @@
 # Run Warsaw in a container
 
 # Base docker image
-FROM ubuntu
+FROM ubuntu:latest
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
 # Install Firefox
