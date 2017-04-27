@@ -5,6 +5,18 @@ FROM ubuntu:latest
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
 # Install Firefox
+
+ADD	\
+	# https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libjbig0_2.0-2_amd64.deb \
+	https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libtiff4_3.9.6-6ubuntu1_amd64.deb \
+	# https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/fontconfig-config_2.9.0-7_all.deb \
+	# https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libfontconfig1_2.9.0-7_amd64.deb \
+	https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libwxbase2.8-0_2.8.12.1-6ubuntu2_amd64.deb \
+	https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libwxgtk2.8-0_2.8.12.1-6ubuntu2_amd64.deb \
+	# https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libpcsclite1_1.8.5-1ubuntu1_amd64.deb \
+	# https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libccid_1.4.7-1_amd64.deb \
+	/src/
+
 RUN apt-get update \
 	&& apt-get upgrade -y \
 	&& apt-get install -y \
@@ -23,18 +35,6 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /src/*.deb
 
-
-
-ADD	\
-	# https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libjbig0_2.0-2_amd64.deb \
-	https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libtiff4_3.9.6-6ubuntu1_amd64.deb \
-	# https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/fontconfig-config_2.9.0-7_all.deb \
-	# https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libfontconfig1_2.9.0-7_amd64.deb \
-	https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libwxbase2.8-0_2.8.12.1-6ubuntu2_amd64.deb \
-	https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libwxgtk2.8-0_2.8.12.1-6ubuntu2_amd64.deb \
-	# https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libpcsclite1_1.8.5-1ubuntu1_amd64.deb \
-	# https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libccid_1.4.7-1_amd64.deb \
-	/src/
 
 RUN find /src/ -type f -exec apt -y install {} \;
 
