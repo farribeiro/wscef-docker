@@ -22,5 +22,6 @@ else
   su -c "/etc/init.d/warsaw start"
 fi
 
+su -c "/etc/init.d/pcscd start"
 /usr/local/bin/warsaw/core \
 && firefox -private-window www.caixa.gov.br
