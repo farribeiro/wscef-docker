@@ -2,7 +2,7 @@ services:
   - docker
 
 # before_script:
-  - docker-compose build
+  # - docker-compose build
 
 # script:
   # - docker-compose run wscef
