@@ -1,6 +1,7 @@
 version: '2'
 services:
   wscef:
+    image: farribeiro/wscef-docker
     build: .
     devices:
       - /dev/snd:/dev/snd
