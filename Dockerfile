@@ -20,7 +20,6 @@ RUN apt-get update \
 	&& rm -rf /src/*.deb
 
 
-ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/
 COPY startup.sh /home/ff/
 
 # Add ff  user
@@ -31,6 +30,12 @@ RUN groupadd -g 1000 -r ff \
 	&& chown -R ff:ff /home/ff \
 	&& passwd -d root
 
+# Add ff profile
+ADD mozilla-profile.txz /home/ff/
+
+# Add warsaw
+ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/
+RUN apt -y install /src/GBPCEFwr64.deb
 
 # Run firefox as non privileged user
 USER ff
