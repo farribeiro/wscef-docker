@@ -35,7 +35,8 @@ ADD mozilla-profile.txz /home/ff/
 
 # Add warsaw
 ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/
-RUN apt -y install /src/GBPCEFwr64.deb
+RUN apt -y install /src/GBPCEFwr64.deb \
+ && rm /src/GBPCEFwr64.deb
 
 # Run firefox as non privileged user
 USER ff
