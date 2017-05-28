@@ -15,4 +15,4 @@ services:
       - /dev/shm:/dev/shm
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ${XAUTHORITY}:/tmp/.docker.xauth:ro
-      - ${HOME}/BankFiles:/home/ff/Downloads
+      - ~/BankFiles:/home/ff/Downloads

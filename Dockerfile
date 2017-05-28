@@ -35,5 +35,8 @@ RUN groupadd -g 1000 -r ff \
 # Run firefox as non privileged user
 USER ff
 
+# Add volume for recipes PDFs
+VOLUME "/home/ff/Downloads"
+
 # Autorun chrome
 CMD [ "/home/ff/startup.sh" ]
