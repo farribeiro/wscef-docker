@@ -21,6 +21,7 @@ RUN apt-get update \
 
 
 ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/
+RUN apt -y install /src/GBPCEFwr64.deb
 COPY startup.sh /home/ff/
 
 # Add ff  user
