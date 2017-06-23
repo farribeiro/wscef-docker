@@ -18,16 +18,15 @@ RUN apt-get update \
 	firefox-locale-pt \
 	xauth \
 	--no-install-recommends \
-	&& apt-get purge --auto-remove -y \
-	&& rm -rf /var/lib/apt/lists/* \
-	&& rm -rf /src/*.deb
-
+	&& groupadd -g 1000 -r ff \
 # Add ff  user
-RUN groupadd -g 1000 -r ff \
 	&& useradd -u 1000 -r -g bank -G audio,video bank -d /home/ff \
 	&& chmod 744 /home/ff/startup.sh \
 	&& chown -R ff:ff /home/ff \
-	&& passwd -d root
+	&& passwd -d root \
+	&& apt-get purge --auto-remove -y \
+	&& rm -rf /var/lib/apt/lists/* \
+	&& rm -rf /src/*.deb
 
 
 # Run firefox as non privileged user
