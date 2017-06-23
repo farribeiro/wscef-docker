@@ -19,7 +19,7 @@ RUN apt-get update \
 	xauth \
 	--no-install-recommends \
 	&& groupadd -g 1000 -r ff \
-	&& useradd -u 1000 -r -g bank -G audio,video bank -d /home/ff \
+	&& useradd -u 1000 -r -g ff -G audio,video ff -d /home/ff \
 	&& chmod 744 /home/ff/startup.sh \
 	&& chown -R ff:ff /home/ff \
 	&& passwd -d root \
