@@ -19,7 +19,6 @@ RUN apt-get update \
 	xauth \
 	--no-install-recommends \
 	&& groupadd -g 1000 -r ff \
-# Add ff  user
 	&& useradd -u 1000 -r -g bank -G audio,video bank -d /home/ff \
 	&& chmod 744 /home/ff/startup.sh \
 	&& chown -R ff:ff /home/ff \
