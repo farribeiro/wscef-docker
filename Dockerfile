@@ -25,8 +25,7 @@ COPY startup.sh /home/ff/
 
 # Add ff  user
 RUN groupadd -g 1000 -r ff \
-	&& useradd -u 1000 -r -g ff -G audio,video ff \
-	&& mkdir -p /home/ff \
+	&& useradd -u 1000 -r -g bank -G audio,video bank -d /home/ff \
 	&& chmod 744 /home/ff/startup.sh \
 	&& chown -R ff:ff /home/ff \
 	&& passwd -d root
