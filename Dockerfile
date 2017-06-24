@@ -24,9 +24,7 @@ RUN apt-get update \
 	&& chown -R ff:ff /home/ff \
 	&& passwd -d root \
 	&& apt-get purge --auto-remove -y \
-	&& rm -rf /var/lib/apt/lists/* \
-	&& rm -rf /src/*.deb
-
+	&& rm -rf /var/lib/apt/lists/*
 
 # Run firefox as non privileged user
 USER ff
