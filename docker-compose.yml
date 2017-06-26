@@ -8,7 +8,6 @@ services:
     environment:
       - DISPLAY=${DISPLAY}
       - XAUTHORITY=/home/ff/.Xauthority
-      - HOST_HOSTNAME=${HOSTNAME}
     cpuset: '0'
     mem_limit: 512M
     network_mode: host
