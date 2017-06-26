@@ -14,5 +14,5 @@ services:
     network_mode: host
     volumes:
       - /dev/shm:/dev/shm
-      - ${XAUTHORITY}:/tmp/.docker.xauth:ro
+      - ${XAUTHORITY}:/home/ff/.Xauthority
       - ~/BankFiles:/home/ff/Downloads
