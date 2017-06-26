@@ -9,7 +9,9 @@ since environments and volumes are set on <code>docker-compose.yml.
 
 **To build:** `docker-compose build wscef`
 
-**To run:** `docker-compose run --rm wscef`
+**To first run:** `docker-compose run --name wscef wscef`
+
+**To other runs:** `docker start -a wscef`
 
 **PS:** Xauth will break the container if you restart or
 shut down the system. So at each new session, you must instantiate a new container.</p>
