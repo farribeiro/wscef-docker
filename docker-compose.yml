@@ -13,6 +13,11 @@ services:
     mem_limit: 512M
     volumes:
       - /dev/shm:/dev/shm
-      - /tmp/.X11-unix:/tmp/.X11-unix
       - ${XAUTHORITY}:/tmp/.docker.xauth:ro
       - ~/BankFiles:/home/ff/Downloads
+    networks:
+      - default
+networks:
+  default:
+    external:
+      name: host
