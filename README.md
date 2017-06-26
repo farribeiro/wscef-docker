@@ -4,8 +4,8 @@ Warsaw in docker container
 
 ## Instructions
 
-Use docker compose to build and run the docker container, rather than <code>docker run</code>, 
-since environments and volumes are set on <code>docker-compose.yml.
+Use docker compose to build and run the docker container, rather than `docker run`, 
+since environments and volumes are set on `docker-compose.yml`.
 
 **To build:** `docker-compose build wscef`
 
