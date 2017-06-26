@@ -11,9 +11,8 @@ since environments and volumes are set on <code>docker-compose.yml</code>.
 
 <p><strong>To run:</strong> <code>docker-compose run --rm wscef</code>
 
-<p><strong>PS:</strong> The xauth will broke the container if you restart or
-poweroff the system, else in the same session will run ok, and not erase
-it.</p>
+<p><strong>PS:</strong> Xauth will break the container if you restart or
+shut down the system. So at each new session, you must instantiate a new container.</p>
 
 <p><strong>PS2:</strong> you must run Docker using a GNU/Linux distro running xorg.
 Be aware some installations may run another display server, such as Wayland. 
