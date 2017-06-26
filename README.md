@@ -9,6 +9,8 @@ since environments and volumes are set on <code>docker-compose.yml.
 
 **To build:** `docker-compose build wscef`
 
+**To pulling existing image:** `docker-compose pull`
+
 **To first run:** `docker-compose run --name wscef wscef`
 
 **To other runs:** `docker start -a wscef`
