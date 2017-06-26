@@ -11,13 +11,8 @@ services:
       - HOST_HOSTNAME=${HOSTNAME}
     cpuset: '0'
     mem_limit: 512M
+    network_mode: host
     volumes:
       - /dev/shm:/dev/shm
       - ${XAUTHORITY}:/tmp/.docker.xauth:ro
       - ~/BankFiles:/home/ff/Downloads
-    networks:
-      - default
-networks:
-  default:
-    external:
-      name: host
