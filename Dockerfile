@@ -14,8 +14,8 @@ RUN apt-get update \
 	language-pack-pt \
 	openssl \
 	libnss3-tools \
-	firefox \
-	firefox-locale-pt \
+	firefox-esr \
+	firefox-esr-l10n-pt-br \
 	xauth \
 	--no-install-recommends \
 	&& groupadd -g 1000 -r ff \
