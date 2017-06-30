@@ -1,13 +1,11 @@
 # Run Warsaw in a container
 
 # Base docker image
-FROM debian:latest
+FROM alpine:latest
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
 ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/
 COPY startup.sh /home/ff/
-
-ENV DEBIAN_FRONTEND=noninteractive
 
 # Install Firefox
 RUN apt-get update \
