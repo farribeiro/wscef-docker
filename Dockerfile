@@ -9,11 +9,8 @@ COPY startup.sh /home/ff/
 # Install Firefox
 RUN apk -U update \
 	&& apk -U add \
-	# language-pack-pt \
 	openssl \
-	libnss3-tools \
 	firefox-esr \
-	firefox-esr-l10n-pt-br \
 	xauth \
 	--no-install-recommends \
 	&& groupadd -g 1000 -r ff \
