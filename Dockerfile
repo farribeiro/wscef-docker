@@ -17,9 +17,8 @@ RUN apk -U update \
 	&& adduser -u 1000 -g ff -G audio,video ff -d /home/ff \
 	&& chmod 744 /home/ff/startup.sh \
 	&& chown -R ff:ff /home/ff \
-	&& passwd -d root \
-	&& apt-get purge --auto-remove -y \
-	&& rm -rf /var/lib/apt/lists/*
+	&& passwd -d root
+
 
 # Run firefox as non privileged user
 USER ff
