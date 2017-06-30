@@ -15,8 +15,5 @@ since environments and volumes are set on `docker-compose.yml`.
 
 **To other runs:** `docker start -a wscef`
 
-**PS:** Xauth will break the container if you restart or
-shut down the system. So at each new session, you must instantiate a new container.
-
-**PS2:** you must run Docker using a GNU/Linux distro running xorg.
+**PS:** you must run Docker using a GNU/Linux distro running xorg.
 Be aware some installations may run another display server, such as Wayland. 
