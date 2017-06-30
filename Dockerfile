@@ -13,8 +13,7 @@ RUN apk -U update \
 	firefox-esr \
 	xauth \
 	--no-install-recommends \
-	&& addgroup -g 1000 ff \
-	&& adduser -u 1000 -g ff ff -h /home/ff \
+	&& adduser -D -u 1000 -g ff ff -h /home/ff \
 	&& chmod 744 /home/ff/startup.sh \
 	&& chown -R ff:ff /home/ff \
 	&& passwd -d root
