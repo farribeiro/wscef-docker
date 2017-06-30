@@ -7,9 +7,8 @@ LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 COPY startup.sh /home/ff/
 
 # Install Firefox
-RUN apt-get update \
-	&& apt-get upgrade -y \
-	&& apt-get install -y \
+RUN apk -U update \
+	&& apk -U add \
 	# language-pack-pt \
 	openssl \
 	libnss3-tools \
