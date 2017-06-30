@@ -4,7 +4,6 @@
 FROM alpine:latest
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
-ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/
 COPY startup.sh /home/ff/
 
 # Install Firefox
