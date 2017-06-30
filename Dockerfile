@@ -14,7 +14,7 @@ RUN apk -U update \
 	xauth \
 	--no-install-recommends \
 	&& addgroup -g 1000 ff \
-	&& adduser -u 1000 -g ff -G audio,video ff -d /home/ff \
+	&& adduser -u 1000 -g ff -G audio,video ff -h /home/ff \
 	&& chmod 744 /home/ff/startup.sh \
 	&& chown -R ff:ff /home/ff \
 	&& passwd -d root
