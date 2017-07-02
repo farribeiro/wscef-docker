@@ -1,6 +1,8 @@
 FROM alpine:latest
 MAINTAINER "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>
 
+# COPY ebuild.conf /etc/abuild.conf
+
 RUN apk -U update \
   && apk -U add \
   alpine-sdk \
