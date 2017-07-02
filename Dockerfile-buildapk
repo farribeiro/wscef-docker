@@ -3,4 +3,5 @@ MAINTAINER "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>
 
 RUN apk -U update \
   && apk -U add \
-  alpine-sdk
+  alpine-sdk \
+  git
