@@ -7,3 +7,4 @@ RUN apk -U update \
   git \
   && git config --global user.name "Fabio Rodrigues Ribeiro" \
   && git config --global user.email "farribeiro@gmail.com" \
+  && git clone git://git.alpinelinux.org/aports
