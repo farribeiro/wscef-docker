@@ -4,4 +4,6 @@ MAINTAINER "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>
 RUN apk -U update \
   && apk -U add \
   alpine-sdk \
-  git
+  git \
+  && git config --global user.name "Fabio Rodrigues Ribeiro" \
+  && git config --global user.email "farribeiro@gmail.com" \
