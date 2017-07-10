@@ -2,7 +2,7 @@
 Name=MyScript
 GenericName=A descriptive name
 Comment=Some description about your script
-Exec=/home/vagrant/warsaw.sh
+Exec=docker start -a wscef
 Terminal=true
 Type=Application
 X-GNOME-Autostart-enabled=true
