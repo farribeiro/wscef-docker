@@ -12,7 +12,6 @@ RUN apk -U update \
 	openssl \
 	firefox-esr \
 	xauth \
-	--no-install-recommends \
 	&& adduser -D -u 1000 -g ff ff -h /home/ff \
 	&& chmod 744 /home/ff/startup.sh \
 	&& chown -R ff:ff /home/ff \
