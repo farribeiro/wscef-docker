@@ -15,5 +15,8 @@ since environments and volumes are set on `docker-compose.yml`.
 
 **To other runs:** `docker start -a wscef`
 
+**PS:** Reports that the warsaw daemon for CEF works for the BB site:
+https://github.com/farribeiro/wscef-docker/issues/9#issuecomment-308244119
+
 **PS:** you must run Docker using a GNU/Linux distro running xorg.
 Be aware some installations may run another display server, such as Wayland. 
