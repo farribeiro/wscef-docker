@@ -8,11 +8,10 @@ services:
     environment:
       - DISPLAY=${DISPLAY}
       - XAUTHORITY=/home/ff/.Xauthority
-      - HOST_HOSTNAME=${HOSTNAME}
     cpuset: '0'
     mem_limit: 512M
+    network_mode: host
     volumes:
       - /dev/shm:/dev/shm
-      - /tmp/.X11-unix:/tmp/.X11-unix
-      - ${XAUTHORITY}:/tmp/.docker.xauth:ro
+      - ${XAUTHORITY}:/home/ff/.Xauthority
       - ~/BankFiles:/home/ff/Downloads

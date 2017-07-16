@@ -16,7 +16,6 @@ RUN apt-get update \
 	libnss3-tools \
 	firefox \
 	firefox-locale-pt \
-	xauth \
 	--no-install-recommends \
 	&& groupadd -g 1000 -r ff \
 	&& useradd -u 1000 -r -g ff -G audio,video ff -d /home/ff \
