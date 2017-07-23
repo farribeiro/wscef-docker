@@ -15,7 +15,7 @@ ADD	\
 	https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libwxgtk2.8-0_2.8.12.1-6ubuntu2_amd64.deb \
 	# https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libpcsclite1_1.8.5-1ubuntu1_amd64.deb \
 	# https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libccid_1.4.7-1_amd64.deb \
-	http://www.iti.gov.br/images/middlewares/safesignidentityclient_3.0.77-Ubuntu_amd64.deb \
+	https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/safesignidentityclient_3.0.77-Ubuntu_amd64.deb \
 	/src/
 
 RUN apt-get update \
