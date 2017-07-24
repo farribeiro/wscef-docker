@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=MyScript
+GenericName=A descriptive name
+Comment=Some description about your script
+Exec=docker start -a wscef
+Terminal=true
+Type=Application
