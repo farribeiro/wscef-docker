@@ -1,0 +1,12 @@
+FROM alpine:latest
+MAINTAINER "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>
+
+# COPY ebuild.conf /etc/abuild.conf
+
+RUN apk -U update \
+  && apk -U add \
+  alpine-sdk \
+  git \
+  && git config --global user.name "Fabio Rodrigues Ribeiro" \
+  && git config --global user.email "farribeiro@gmail.com" \
+  && git clone git://git.alpinelinux.org/aports
