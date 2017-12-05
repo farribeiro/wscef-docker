@@ -24,7 +24,7 @@ RUN apt-get update \
 	&& chmod 744 /home/ff/startup.sh \
 	&& chown -R ff:ff /home/ff \
 	&& passwd -d root \
-	&& xvfb-run firefox -CreateProfile default \
+	&& su -c "xvfb-run firefox -CreateProfile default" - ff \
 	&& apt -y install /src/GBPCEFwr64.deb \
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/*
