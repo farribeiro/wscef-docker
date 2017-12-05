@@ -25,7 +25,7 @@ RUN apt-get update \
 	&& chown -R ff:ff /home/ff \
 	&& passwd -d root \
 	&& xvfb-run firefox -CreateProfile default \
-	&& apt -y install /src/GBPCEFwr64.deb" \
+	&& apt -y install /src/GBPCEFwr64.deb \
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/*
 
