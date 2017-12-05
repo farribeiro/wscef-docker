@@ -14,11 +14,6 @@ then
   fi
 fi
 
-if [ ! -d ~/.mozilla ]
-then
-else
-  su -c "/etc/init.d/warsaw start"
-fi
-
+su -c "/etc/init.d/warsaw start"
 /usr/local/bin/warsaw/core \
 && firefox -private-window www.caixa.gov.br
