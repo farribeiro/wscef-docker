@@ -17,13 +17,14 @@ RUN apt-get update \
 	firefox \
 	firefox-locale-pt \
 	xauth \
+	xvfb \
 	--no-install-recommends \
 	&& groupadd -g 1000 -r ff \
 	&& useradd -u 1000 -r -g ff -G audio,video ff -d /home/ff \
 	&& chmod 744 /home/ff/startup.sh \
 	&& chown -R ff:ff /home/ff \
 	&& passwd -d root \
-	&& firefox -CreateProfile default \
+	&& xvfb-run firefox -CreateProfile default \
 	&& apt -y install /src/GBPCEFwr64.deb" \
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/*
