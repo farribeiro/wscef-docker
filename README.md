@@ -20,3 +20,5 @@ https://github.com/farribeiro/wscef-docker/issues/9#issuecomment-308244119
 
 **PS:** you must run Docker using a GNU/Linux distro running xorg.
 Be aware some installations may run another display server, such as Wayland. 
+
+**PS:** The root password is **wscef** by https://github.com/farribeiro/wscef-docker/issues/29
