@@ -13,7 +13,7 @@ since environments and volumes are set on `docker-compose.yml`.
 
 **To first run:** `docker-compose run --name wscef wscef`
 
-**To other runs:** `docker start -a wscef`
+**To other runs:** `docker start -i -a wscef`
 
 **PS:** Reports that the warsaw daemon for CEF works for the BB site:
 https://github.com/farribeiro/wscef-docker/issues/9#issuecomment-308244119
