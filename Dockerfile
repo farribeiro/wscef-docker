@@ -22,6 +22,8 @@ RUN apt-get update \
 	&& useradd -u 1000 -r -g ff -G audio,video ff -d /home/ff \
 	&& chmod 744 /home/ff/startup.sh \
 	&& chown -R ff:ff /home/ff \
+	&& echo 'ff ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
+	&& echo 'Defaults !requiretty' >> /etc/sudoers \
 	&& echo root:wscef | chpasswd \
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/*
