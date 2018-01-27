@@ -17,6 +17,7 @@ RUN apt-get update \
 	firefox \
 	firefox-locale-pt \
 	xauth \
+	sudo \
 	--no-install-recommends \
 	&& groupadd -g 1000 -r ff \
 	&& useradd -u 1000 -r -g ff -G audio,video ff -d /home/ff \
