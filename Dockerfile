@@ -23,6 +23,8 @@ RUN apt-get update \
 	&& chmod 744 /home/ff/startup.sh \
 	&& chown -R ff:ff /home/ff \
 	&& echo root:wscef | chpasswd \
+	&& echo 'Defaults !requiretty' >> /etc/sudoers \
+	&& dbus-uuidgen > /etc/machine-id \
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/*
 
