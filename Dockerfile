@@ -14,6 +14,8 @@ RUN apt-get update \
 	language-pack-pt \
 	openssl \
 	libnss3-tools \
+	libcurl4 \
+	python-gpg \
 	firefox \
 	firefox-locale-pt \
 	xauth \
