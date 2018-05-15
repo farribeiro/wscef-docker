@@ -15,6 +15,8 @@ since environments and volumes are set on `docker-compose.yml`.
 
 **To other runs:** `docker start -i -a wscef`
 
+**To purge enverthing:** `docker-compose down --rmi all`, thanks[1]
+
 **PS:** Reports that the warsaw daemon for CEF works for the BB site:
 https://github.com/farribeiro/wscef-docker/issues/9#issuecomment-308244119
 
@@ -22,3 +24,5 @@ https://github.com/farribeiro/wscef-docker/issues/9#issuecomment-308244119
 Be aware some installations may run another display server, such as Wayland. 
 
 **PS:** The root password is **wscef** by https://github.com/farribeiro/wscef-docker/issues/29
+
+[1] https://github.com/jsalatiel/wsbb-docker/commit/72e42bb5f04fbe8eb1f7f3e6226975aba137dcb5#diff-3254677a7917c6c01f55212f86c57fbf
