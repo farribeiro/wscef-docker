@@ -17,6 +17,8 @@ since environments and volumes are set on `docker-compose.yml`.
 
 **To purge enverthing:** `docker-compose down --rmi all`, thanks[1]
 
+**To force replace the container:** `docker-compose up --force-recreate`, thanks[1]
+
 **PS:** Reports that the warsaw daemon for CEF works for the BB site:
 https://github.com/farribeiro/wscef-docker/issues/9#issuecomment-308244119
 
