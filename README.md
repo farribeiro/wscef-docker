@@ -2,6 +2,10 @@
 
 Warsaw in docker container
 
+## Pre-requisites
+
+- Docker and Docker-Compose of your distro.
+
 ## Instructions
 
 Use docker compose to build and run the docker container, rather than `docker run`, 
