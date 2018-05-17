@@ -19,7 +19,7 @@ since environments and volumes are set on `docker-compose.yml`.
 
 **To other runs:** `docker start -i -a wscef`
 
-**To purge enverthing:** `docker-compose down --rmi all`, thanks[1]
+**To purge everthing:** `docker-compose down --rmi all`, thanks[1]
 
 **To force replace the container:** `docker-compose up --force-recreate`, thanks[1]
 
