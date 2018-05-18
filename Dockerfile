@@ -26,6 +26,9 @@ RUN apt-get update \
 	&& echo root:wscef | chpasswd \
 	&& mv /src/GBPCEFwr64.deb /src/warsaw.deb \
 	&& dpkg-deb -R /src/warsaw.deb /src/warsaw \
+	&& sed -i 's/python-gpgme/python-gpg/g' /src/warsaw/DEBIAN/control \
+	&& sed -i 's/libcurl3/libcurl4/g' /src/warsaw/DEBIAN/control \
+	&& sed -i 's/gpgme/gpg/g' /src/warsaw/usr/bin/warsaw \
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/*
 
