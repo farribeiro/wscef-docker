@@ -24,6 +24,7 @@ RUN apt-get update \
 	&& chmod 744 /home/ff/startup.sh \
 	&& chown -R ff:ff /home/ff \
 	&& echo root:wscef | chpasswd \
+	&& mv /src/GBPCEFwr64.deb /src/warsaw.deb \
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/*
 
