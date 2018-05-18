@@ -4,7 +4,7 @@
 FROM ubuntu:latest
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
-ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/
+ADD https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw-setup-ubuntu_64.deb /src/warsaw.deb
 COPY startup.sh /home/ff/
 
 # Install Firefox
@@ -24,7 +24,6 @@ RUN apt-get update \
 	&& chmod 744 /home/ff/startup.sh \
 	&& chown -R ff:ff /home/ff \
 	&& echo root:wscef | chpasswd \
-	&& mv /src/GBPCEFwr64.deb /src/warsaw.deb \
 	&& dpkg-deb -R /src/warsaw.deb /src/warsaw \
 	&& sed -i 's/python-gpgme/python-gpg/g' /src/warsaw/DEBIAN/control \
 	&& sed -i 's/libcurl3/libcurl4/g' /src/warsaw/DEBIAN/control \
