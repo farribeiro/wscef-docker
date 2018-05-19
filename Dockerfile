@@ -17,6 +17,26 @@ RUN apt-get update \
 	firefox \
 	firefox-locale-pt \
 	xauth \
+	sed \
+	libdbus-1-3 \
+	procps \
+	python2.7 \
+	libpython2.7-minimal \
+	libpython2.7-stdlib \
+	python-gpg \
+	python-openssl \
+	zenity \
+	libc6 \
+	libcurl4 \
+	libgtk2.0-0 \
+	libgdk-pixbuf2.0-0 \
+	libpango-1.0-0 \
+	libglib2.0-0 \
+	libx11-6 \
+	libstdc++6 \
+	libgcc1 \
+	libssl1.0.0 \
+	libxi6 \
 	--no-install-recommends \
 	&& groupadd -g 1000 -r ff \
 	&& useradd -u 1000 -r -g ff -G audio,video ff -d /home/ff \
