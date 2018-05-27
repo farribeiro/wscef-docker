@@ -29,11 +29,11 @@ RUN apt-get update \
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/*
 
-# Run firefox as non privileged user
+# Run Firefox as non privileged user
 USER ff
 
 # Add volume for recipes PDFs
 VOLUME "/home/ff/Downloads"
 
-# Autorun chrome
+# Autorun Firefox
 CMD [ "/home/ff/startup.sh" ]
