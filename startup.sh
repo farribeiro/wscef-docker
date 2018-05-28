@@ -16,7 +16,7 @@ fi
 
 if [ ! -d ~/.mozilla ]
 then
-  sudo "dbus-uuidgen > /etc/machine-id" \ 
+  sudo dbus-uuidgen > /etc/machine-id \ 
   && firefox -CreateProfile default \
   && sudo "apt update" \
   && sudo "apt -y upgrade" \
