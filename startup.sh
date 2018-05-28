@@ -17,9 +17,9 @@ fi
 if [ ! -d ~/.mozilla ]
 then
   firefox -CreateProfile default \
-  && sudo "apt update" \
-  && sudo "apt -y upgrade" \
-  && sudo "apt -y install /src/GBPCEFwr64.deb"
+  && sudo apt update \
+  && sudo apt -y upgrade \
+  && sudo apt -y install /src/GBPCEFwr64.deb
 else
   sudo "/etc/init.d/warsaw start"
 fi
