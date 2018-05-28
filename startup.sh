@@ -21,7 +21,7 @@ then
   && sudo apt -y upgrade \
   && sudo apt -y install /src/GBPCEFwr64.deb
 else
-  sudo "/etc/init.d/warsaw start"
+  sudo /etc/init.d/warsaw start
 fi
 
 /usr/local/bin/warsaw/core \
