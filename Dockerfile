@@ -11,32 +11,32 @@ COPY startup.sh /home/ff/
 RUN apt-get update \
 	&& apt-get upgrade -y \
 	&& apt-get install -y \
-	language-pack-pt \
-	openssl \
-	libnss3-tools \
 	firefox \
 	firefox-locale-pt \
-	xauth \
-	sed \
-	libdbus-1-3 \
-	procps \
-	python2.7 \
-	libpython2.7-minimal \
-	libpython2.7-stdlib \
-	python-gpg \
-	python-openssl \
-	zenity \
+	language-pack-pt \
 	libc6 \
 	libcurl4 \
-	libgtk2.0-0 \
-	libgdk-pixbuf2.0-0 \
-	libpango-1.0-0 \
-	libglib2.0-0 \
-	libx11-6 \
-	libstdc++6 \
+	libdbus-1-3 \
 	libgcc1 \
+	libgdk-pixbuf2.0-0 \
+	libglib2.0-0 \
+	libgtk2.0-0 \
+	libnss3-tools \
+	libpango-1.0-0 \
+	libpython2.7-minimal \
+	libpython2.7-stdlib \
 	libssl1.0.0 \
+	libstdc++6 \
+	libx11-6 \
 	libxi6 \
+	openssl \
+	procps \
+	python-gpg \
+	python-openssl \
+	python2.7 \
+	sed \
+	xauth \
+	zenity \
 	--no-install-recommends \
 	&& groupadd -g 1000 -r ff \
 	&& useradd -u 1000 -r -g ff -G audio,video ff -d /home/ff \
