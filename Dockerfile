@@ -35,6 +35,7 @@ RUN apt-get update \
 	python-openssl \
 	python2.7 \
 	sed \
+	sudo \
 	xauth \
 	zenity \
 	--no-install-recommends \
@@ -42,15 +43,17 @@ RUN apt-get update \
 	&& useradd -u 1000 -r -g ff -G audio,video ff -d /home/ff \
 	&& chmod 744 /home/ff/startup.sh \
 	&& chown -R ff:ff /home/ff \
+	&& echo 'ff ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
+	&& echo 'Defaults !requiretty' >> /etc/sudoers \
 	&& echo root:wscef | chpasswd \
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/*
 
-# Run firefox as non privileged user
+# Run Firefox as non privileged user
 USER ff
 
 # Add volume for recipes PDFs
 VOLUME "/home/ff/Downloads"
 
-# Autorun chrome
+# Autorun Firefox
 CMD [ "/home/ff/startup.sh" ]
