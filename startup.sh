@@ -16,7 +16,8 @@ fi
 
 if [ ! -d ~/.mozilla ]
 then
-  firefox -CreateProfile default \
+  sudo dbus-uuidgen > /etc/machine-id \
+  && firefox -CreateProfile default \
   && sudo apt update \
   && sudo apt -y upgrade \
   && sudo apt -y install /src/GBPCEFwr64.deb
