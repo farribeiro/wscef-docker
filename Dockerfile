@@ -1,7 +1,7 @@
 # Run Warsaw in a container
 
 # Base docker image
-FROM ubuntu:latest
+FROM debian:stretch-slim
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
 ADD https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw-setup-ubuntu_64.deb /src/warsaw.deb
