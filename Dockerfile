@@ -16,6 +16,7 @@ RUN apt-get update \
 	firefox-locale-pt \
 	language-pack-pt \
 	&& wget https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb -O /src/GBPCEFwr64.deb
+RUN apt-get install -y \
 	libc6 \
 	libcurl4 \
 	libdbus-1-3 \
