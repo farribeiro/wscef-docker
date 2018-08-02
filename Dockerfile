@@ -4,6 +4,9 @@
 FROM ubuntu:latest
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
+ENV USER=ff
+ENV GUID=1000
+
 ADD https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw-setup-ubuntu_64.deb /src/warsaw.deb
 COPY startup.sh /home/ff/
 
@@ -39,10 +42,10 @@ RUN apt-get update \
 	xauth \
 	zenity \
 	--no-install-recommends \
-	&& groupadd -g 1000 -r ff \
-	&& useradd -u 1000 -r -g ff -G audio,video ff -d /home/ff \
 	&& chmod 744 /home/ff/startup.sh \
-	&& chown -R ff:ff /home/ff \
+	&& groupadd -g ${GUID} -r ${USER} \
+	&& useradd -u ${GUID} -r -g ${USER} -G audio,video ${USER} -d /home/${USER} \
+	&& chown -R ${GUID}:${GUID} /home/${USER} \
 	&& echo 'ff ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
 	&& echo 'Defaults !requiretty' >> /etc/sudoers \
 	&& echo root:wscef | chpasswd \
