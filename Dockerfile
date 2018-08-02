@@ -42,6 +42,7 @@ RUN apt-get update \
 	xauth \
 	zenity \
 	--no-install-recommends \
+	&& mkdir -p /home/${USER} \
 	&& chmod 744 /home/ff/startup.sh \
 	&& groupadd -g ${GUID} -r ${USER} \
 	&& useradd -u ${GUID} -r -g ${USER} -G audio,video ${USER} -d /home/${USER} \
