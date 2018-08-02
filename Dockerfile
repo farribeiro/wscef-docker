@@ -11,9 +11,8 @@ COPY startup.sh /home/ff/
 RUN apt-get update \
 	&& apt-get upgrade -y \
 	&& apt-get install -y \
-	firefox \
-	firefox-locale-pt \
-	language-pack-pt \
+	firefox-esr \
+	firefox-esr-l10n-pt-br \
 	libc6 \
 	libcurl4 \
 	libdbus-1-3 \
