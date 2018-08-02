@@ -4,7 +4,6 @@
 FROM ubuntu:latest
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
-ADD https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw-setup-ubuntu_64.deb /src/warsaw.deb
 COPY startup.sh /home/ff/
 
 # Install Firefox
@@ -14,6 +13,7 @@ RUN apt-get update \
 	firefox \
 	firefox-locale-pt \
 	language-pack-pt \
+	&& wget https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb -O /src/GBPCEFwr64.deb
 	libc6 \
 	libcurl4 \
 	libdbus-1-3 \
