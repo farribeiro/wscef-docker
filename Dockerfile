@@ -12,6 +12,8 @@ RUN apt-get update \
 	&& apt-get install -y \
 	ca-certificates \
 	wget \
+	--no-install-recommends \
+	&& mkdir -p /src \
 	firefox \
 	firefox-locale-pt \
 	language-pack-pt \
