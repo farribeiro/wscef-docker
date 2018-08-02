@@ -1,7 +1,7 @@
 # Run Warsaw in a container
 
 # Base docker image
-FROM ubuntu:latest
+FROM debian:stretch-slim
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
 ADD https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw-setup-ubuntu_64.deb /src/warsaw.deb
@@ -11,9 +11,8 @@ COPY startup.sh /home/ff/
 RUN apt-get update \
 	&& apt-get upgrade -y \
 	&& apt-get install -y \
-	firefox \
-	firefox-locale-pt \
-	language-pack-pt \
+	firefox-esr \
+	firefox-esr-l10n-pt-br \
 	libc6 \
 	libcurl4 \
 	libdbus-1-3 \
@@ -46,11 +45,6 @@ RUN apt-get update \
 	&& echo 'ff ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
 	&& echo 'Defaults !requiretty' >> /etc/sudoers \
 	&& echo root:wscef | chpasswd \
-	&& dpkg-deb -R /src/warsaw.deb /src/warsaw \
-	&& sed -i 's/python-gpgme/python-gpg/g' /src/warsaw/DEBIAN/control \
-	&& sed -i 's/libcurl3/libcurl4/g' /src/warsaw/DEBIAN/control \
-	&& sed -i 's/gpgme/gpg/g' /src/warsaw/usr/bin/warsaw \
-	&& dpkg-deb -b /src/warsaw /src/GBPCEFwr64.deb \
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/*
 
