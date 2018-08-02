@@ -1,8 +1,11 @@
 # Run Warsaw in a container
 
 # Base docker image
-FROM ubuntu:latest
+FROM debian:stretch-slim
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
+
+ENV USER=ff
+ENV GUID=1000
 
 COPY startup.sh /home/ff/
 
@@ -14,11 +17,10 @@ RUN apt-get update \
 	wget \
 	--no-install-recommends \
 	&& mkdir -p /src \
-	firefox \
-	firefox-locale-pt \
-	language-pack-pt \
 	&& wget https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb -O /src/GBPCEFwr64.deb
 RUN apt-get install -y \
+	firefox-esr \
+	firefox-esr-l10n-pt-br \
 	libc6 \
 	libcurl4 \
 	libdbus-1-3 \
@@ -44,18 +46,14 @@ RUN apt-get install -y \
 	xauth \
 	zenity \
 	--no-install-recommends \
-	&& groupadd -g 1000 -r ff \
-	&& useradd -u 1000 -r -g ff -G audio,video ff -d /home/ff \
+	&& mkdir -p /home/${USER} \
 	&& chmod 744 /home/ff/startup.sh \
-	&& chown -R ff:ff /home/ff \
+	&& groupadd -g ${GUID} -r ${USER} \
+	&& useradd -u ${GUID} -r -g ${USER} -G audio,video ${USER} -d /home/${USER} \
+	&& chown -R ${GUID}:${GUID} /home/${USER} \
 	&& echo 'ff ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
 	&& echo 'Defaults !requiretty' >> /etc/sudoers \
 	&& echo root:wscef | chpasswd \
-	&& dpkg-deb -R /src/warsaw.deb /src/warsaw \
-	&& sed -i 's/python-gpgme/python-gpg/g' /src/warsaw/DEBIAN/control \
-	&& sed -i 's/libcurl3/libcurl4/g' /src/warsaw/DEBIAN/control \
-	&& sed -i 's/gpgme/gpg/g' /src/warsaw/usr/bin/warsaw \
-	&& dpkg-deb -b /src/warsaw /src/GBPCEFwr64.deb \
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/*
 
