@@ -45,11 +45,6 @@ RUN apt-get update \
 	&& echo 'ff ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
 	&& echo 'Defaults !requiretty' >> /etc/sudoers \
 	&& echo root:wscef | chpasswd \
-	&& dpkg-deb -R /src/warsaw.deb /src/warsaw \
-	&& sed -i 's/python-gpgme/python-gpg/g' /src/warsaw/DEBIAN/control \
-	&& sed -i 's/libcurl3/libcurl4/g' /src/warsaw/DEBIAN/control \
-	&& sed -i 's/gpgme/gpg/g' /src/warsaw/usr/bin/warsaw \
-	&& dpkg-deb -b /src/warsaw /src/GBPCEFwr64.deb \
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/*
 
