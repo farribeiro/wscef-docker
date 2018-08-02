@@ -10,6 +10,8 @@ COPY startup.sh /home/ff/
 RUN apt-get update \
 	&& apt-get upgrade -y \
 	&& apt-get install -y \
+	ca-certificates \
+	wget \
 	firefox \
 	firefox-locale-pt \
 	language-pack-pt \
