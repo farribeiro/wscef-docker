@@ -1,6 +1,8 @@
 # wscef-docker
 
-Warsaw in docker container
+Warsaw in docker container. Warsaw is a security module, a.k.a Guardião, for brazilian
+internet banking. This project is compatible of Banco do Brasil and Caixa Econômica
+Federal.
 
 ## Pre-requisites
 
