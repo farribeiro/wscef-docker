@@ -22,7 +22,7 @@ RUN apt-get install -y \
 	firefox-esr \
 	firefox-esr-l10n-pt-br \
 	libc6 \
-	libcurl4 \
+	# libcurl4 \
 	libdbus-1-3 \
 	libgcc1 \
 	libgdk-pixbuf2.0-0 \
@@ -32,7 +32,7 @@ RUN apt-get install -y \
 	libpango-1.0-0 \
 	libpython2.7-minimal \
 	libpython2.7-stdlib \
-	libssl1.0.0 \
+	# libssl1.0.0 \
 	libstdc++6 \
 	libx11-6 \
 	libxi6 \
