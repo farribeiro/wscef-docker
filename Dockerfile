@@ -7,11 +7,18 @@ LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 ENV USER=ff
 ENV GUID=1000
 
+# Setup locale
+ENV LANGUAGE pt_BR.UTF-8
+ENV LANG pt_BR.UTF-8
+ENV LC_ALL pt_BR.UTF-8
+RUN apt-get update && apt-get install -y locales \
+	&& localedef -i pt_BR -c -f UTF-8 -A /usr/share/locale/locale.alias pt_BR.UTF-8
+
+
 COPY startup.sh /home/ff/
 
 # Install Firefox
-RUN apt-get update \
-	&& apt-get upgrade -y \
+RUN apt-get upgrade -y \
 	&& apt-get install -y \
 	ca-certificates \
 	wget \
