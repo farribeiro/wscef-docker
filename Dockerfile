@@ -11,9 +11,6 @@ ENV GUID=1000
 RUN apt-get update && apt-get install -y locales \
 	&& localedef -i pt_BR -c -f UTF-8 -A /usr/share/locale/locale.alias pt_BR.UTF-8
 
-
-COPY startup.sh /home/ff/
-
 # Install Firefox
 RUN apt-get upgrade -y \
 	&& apt-get install -y \
@@ -51,7 +48,6 @@ RUN apt-get install -y \
 	zenity \
 	--no-install-recommends \
 	&& mkdir -p /home/${USER} \
-	&& chmod 744 /home/ff/startup.sh \
 	&& groupadd -g ${GUID} -r ${USER} \
 	&& useradd -u ${GUID} -r -g ${USER} -G audio,video ${USER} -d /home/${USER} \
 	&& chown -R ${GUID}:${GUID} /home/${USER} \
@@ -67,6 +63,9 @@ USER ff
 
 # Add volume for recipes PDFs
 VOLUME "/home/ff/Downloads"
+
+COPY startup.sh /home/ff/
+RUN chmod 744 /home/ff/startup.sh \
 
 # Autorun Firefox
 CMD [ "/home/ff/startup.sh" ]
