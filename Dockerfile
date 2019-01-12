@@ -58,7 +58,7 @@ RUN apt-get install -y \
 	&& echo 'ff ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
 	&& echo 'Defaults !requiretty' >> /etc/sudoers \
 	&& echo root:wscef | chpasswd \
-	&& apt-get remove wget \
+	&& apt-get remove -y wget \
 	&& apt-get purge --auto-remove -y \
 	&& rm -rf /var/lib/apt/lists/*
 
