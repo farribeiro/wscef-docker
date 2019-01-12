@@ -7,9 +7,12 @@ LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 ENV USER=ff
 ENV GUID=1000
 
+ENV LANG=pt_BR.UTF-8
+
 # Setup locale
 RUN apt-get update && apt-get install -y locales \
-	&& localedef -i pt_BR -c -f UTF-8 -A /usr/share/locale/locale.alias pt_BR.UTF-8
+	&& echo "pt_BR.UTF-8 UTF-8" > /etc/locales.gen \
+	&& locale-gen
 
 # Install Firefox
 RUN apt-get upgrade -y \
