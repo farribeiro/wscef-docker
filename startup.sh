@@ -17,7 +17,7 @@ fi
 if [ ! -d ~/.mozilla ]
 then
   # sudo dbus-uuidgen > /etc/machine-id \
-  firefox -CreateProfile default \
+  firefox -no-remote -CreateProfile default \
   && sudo apt update \
   && sudo apt -y upgrade \
   && sudo apt -y install /src/GBPCEFwr64.deb
@@ -26,4 +26,4 @@ else
 fi
 
 /usr/local/bin/warsaw/core \
-&& firefox -private-window www.caixa.gov.br
+&& firefox -no-remote -private-window www.caixa.gov.br
