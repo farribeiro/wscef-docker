@@ -9,7 +9,7 @@ ENV GUID=1000
 
 ENV LANG=pt_BR.UTF-8
 
-RUN apt-get update &&
+RUN apt-get update && \
 	apt-get install -y --no-install-recommends \
 		locales \
 		ca-certificates \
@@ -41,11 +41,11 @@ RUN apt-get update &&
 		xauth \
 		zenity \
 	# Setup locale
-	&& echo "pt_BR.UTF-8 UTF-8" > /etc/locales.gen \
-	&& locale-gen
+	&& echo "pt_BR.UTF-8 UTF-8" > /etc/locale.gen \
+	&& locale-gen \
 	# Downloading warsaw
 	&& mkdir -p /src \
-	&& wget https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb -O /src/GBPCEFwr64.deb
+	&& wget https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb -O /src/GBPCEFwr64.deb \
 	# Configuring the environment
 	&& mkdir -p /home/${USER} \
 	&& groupadd -g ${GUID} -r ${USER} \
@@ -67,7 +67,7 @@ USER ff
 VOLUME "/home/ff/Downloads"
 
 COPY startup.sh /home/ff/
-RUN chmod 744 /home/ff/startup.sh \
+RUN sudo chmod 777 /home/ff/startup.sh
 
 # Autorun Firefox
-CMD [ "/home/ff/startup.sh" ]
+CMD /home/ff/startup.sh
