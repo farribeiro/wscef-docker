@@ -24,4 +24,4 @@ else
 fi
 
 /usr/local/bin/warsaw/core \
-&& firefox -no-remote -private-window www.caixa.gov.br
+&& firefox -no-remote -private-window --class CaixaEconomica --name CaixaEconomica https://www.caixa.gov.br
