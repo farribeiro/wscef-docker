@@ -11,8 +11,11 @@ services:
       - DISPLAY=${DISPLAY}
       - XAUTHORITY=/home/ff/.Xauthority
       - HOST_HOSTNAME=${HOSTNAME}
-    cpuset: '0'
-    mem_limit: 512M
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
     shm_size: 2g
     volumes:
       - /dev/shm:/dev/shm

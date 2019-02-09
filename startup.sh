@@ -1,7 +1,5 @@
 #!/bin/bash
 
-export LANG="pt_BR.UTF-8"
-
 if [ -n "${XAUTHORITY}" ] && [ -n "${HOST_HOSTNAME}" ]
 then
   if [ "${HOSTNAME}" != "${HOST_HOSTNAME}" ]
@@ -26,4 +24,4 @@ else
 fi
 
 /usr/local/bin/warsaw/core \
-&& firefox -no-remote -private-window www.caixa.gov.br
+&& firefox -no-remote -private-window --class CaixaEconomica --name CaixaEconomica https://www.caixa.gov.br
