@@ -9,6 +9,8 @@ ENV GUID=1000
 
 ENV LANG=pt_BR.UTF-8
 
+COPY startup.sh /home/ff/
+
 RUN apt-get update && \
 	apt-get install -y --no-install-recommends \
 		locales \
@@ -48,6 +50,7 @@ RUN apt-get update && \
 	&& wget https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb -O /src/GBPCEFwr64.deb \
 	# Configuring the environment
 	&& mkdir -p /home/${USER} \
+	&& chmod 744 /home/ff/startup.sh \
 	&& groupadd -g ${GUID} -r ${USER} \
 	&& useradd -u ${GUID} -r -g ${USER} -G audio,video ${USER} -d /home/${USER} \
 	&& chown -R ${GUID}:${GUID} /home/${USER} \
@@ -65,9 +68,6 @@ USER ff
 
 # Add volume for recipes PDFs
 VOLUME "/home/ff/Downloads"
-
-COPY startup.sh /home/ff/
-RUN chmod 744 /home/ff/startup.sh
 
 # Autorun Firefox
 CMD /home/ff/startup.sh
