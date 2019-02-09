@@ -48,6 +48,7 @@ RUN apt-get update && \
 	&& wget https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb -O /src/GBPCEFwr64.deb \
 	# Configuring the environment
 	&& mkdir -p /home/${USER} \
+	&& chmod 744 /home/ff/startup.sh \
 	&& groupadd -g ${GUID} -r ${USER} \
 	&& useradd -u ${GUID} -r -g ${USER} -G audio,video ${USER} -d /home/${USER} \
 	&& chown -R ${GUID}:${GUID} /home/${USER} \
@@ -67,7 +68,6 @@ USER ff
 VOLUME "/home/ff/Downloads"
 
 COPY startup.sh /home/ff/
-RUN chmod 744 /home/ff/startup.sh
 
 # Autorun Firefox
 CMD /home/ff/startup.sh
