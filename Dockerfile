@@ -9,6 +9,8 @@ ENV GUID=1000
 
 ENV LANG=pt_BR.UTF-8
 
+COPY startup.sh /home/ff/
+
 RUN apt-get update && \
 	apt-get install -y --no-install-recommends \
 		locales \
@@ -66,8 +68,6 @@ USER ff
 
 # Add volume for recipes PDFs
 VOLUME "/home/ff/Downloads"
-
-COPY startup.sh /home/ff/
 
 # Autorun Firefox
 CMD /home/ff/startup.sh
