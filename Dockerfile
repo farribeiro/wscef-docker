@@ -67,7 +67,7 @@ USER ff
 VOLUME "/home/ff/Downloads"
 
 COPY startup.sh /home/ff/
-RUN sudo chmod 744 /home/ff/startup.sh
+RUN chmod 744 /home/ff/startup.sh
 
 # Autorun Firefox
 CMD /home/ff/startup.sh
