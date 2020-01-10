@@ -15,13 +15,14 @@ fi
 if [ ! -d ~/.mozilla ]
 then
   # sudo dbus-uuidgen > /etc/machine-id \
-  firefox -no-remote -CreateProfile default \
-  && sudo apt update \
-  && sudo apt -y upgrade \
-  && sudo apt -y install /src/GBPCEFwr64.deb
-else
-  sudo /etc/init.d/warsaw start
+  firefox -no-remote -CreateProfile default # \
+  # && sudo apt update \
+  # && sudo apt -y upgrade \
+  # && sudo apt -y install /src/GBPCEFwr64.deb
+#else
+  # sudo /etc/init.d/warsaw start
 fi
+sudo /etc/init.d/warsaw start
 
 /usr/local/bin/warsaw/core \
 && firefox -no-remote -private-window --class CaixaEconomica --name CaixaEconomica https://www.caixa.gov.br

@@ -1,7 +1,7 @@
 # Run Warsaw in a container
 
 # Base docker image
-FROM debian:stretch-slim
+FROM debian:buster-slim
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
 ENV USER=ff
@@ -18,27 +18,28 @@ RUN apt-get update && \
 		wget \
 		firefox-esr \
 		firefox-esr-l10n-pt-br \
-		libc6 \
+		# libc6 \
 		# libcurl4 \
-		libdbus-1-3 \
-		libgcc1 \
-		libgdk-pixbuf2.0-0 \
-		libglib2.0-0 \
-		libgtk2.0-0 \
+		# libdbus-1-3 \
+		# libgcc1 \
+		# libgdk-pixbuf2.0-0 \
+		# libglib2.0-0 \
+		# libgtk2.0-0 \
 		libnss3-tools \
-		libpango-1.0-0 \
-		libpython2.7-minimal \
-		libpython2.7-stdlib \
+		# libpango-1.0-0 \
+		# libpython2.7-minimal \
+		# libpython2.7-stdlib \
 		# libssl1.0.0 \
-		libstdc++6 \
-		libx11-6 \
-		libxi6 \
+		# libstdc++6 \
+		# libx11-6 \
+		# libxi6 \
 		openssl \
 		procps \
 		python-gpg \
 		python-openssl \
-		python2.7 \
-		sed \
+		# python2.7 \
+		python3 \
+		# sed \
 		sudo \
 		xauth \
 		zenity \
@@ -56,12 +57,14 @@ RUN apt-get update && \
 	&& chown -R ${GUID}:${GUID} /home/${USER} \
 	&& echo 'ff ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
 	&& echo 'Defaults !requiretty' >> /etc/sudoers \
-	&& echo root:wscef | chpasswd \
-	# Cleanup
-	&& apt remove --purge -y wget \
-	&& apt autoremove -y \
+	&& echo root:wscef | chpasswd
+
+RUN apt -y install /src/GBPCEFwr64.deb || true
+# Cleanup
+RUN apt autoremove -y \
 	&& apt clean \
-	&& rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+	&& rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
+	&& apt remove --purge -y wget || true
 
 # Run Firefox as non privileged user
 USER ff
