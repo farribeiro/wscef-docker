@@ -30,8 +30,10 @@ since environments and volumes are set on `docker-compose.yml`.
 **PS:** Reports that the warsaw daemon for CEF works for the BB site:
 https://github.com/farribeiro/wscef-docker/issues/9#issuecomment-308244119
 
-**PS:** you must run Docker using a GNU/Linux distro running xorg.
-Be aware some installations may run another display server, such as Wayland. 
+~~**PS:** you must run Docker using a GNU/Linux distro running xorg.
+Be aware some installations may run another display server, such as Wayland.~~
+
+The latest firefox release support wayland, not tested with xauth
 
 **PS:** The root password is **wscef** by https://github.com/farribeiro/wscef-docker/issues/29
 
