@@ -57,14 +57,11 @@ RUN apt-get update && \
 	&& chown -R ${GUID}:${GUID} /home/${USER} \
 	&& echo 'ff ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
 	&& echo 'Defaults !requiretty' >> /etc/sudoers \
-	&& echo root:wscef | chpasswd
-
-RUN apt -y install /src/GBPCEFwr64.deb || true
-# Cleanup
-RUN apt autoremove -y \
+	&& echo root:wscef | chpasswd \
+	&& apt autoremove -y \
 	&& apt clean \
 	&& rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
-	&& apt remove --purge -y wget || true
+	&& apt remove --purge -y wget
 
 # Run Firefox as non privileged user
 USER ff
