@@ -2,9 +2,11 @@
 
 # Base docker image
 FROM debian:buster-slim
+
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
 ENV USER=ff
+
 ENV GUID=1000
 
 ENV LANG=pt_BR.UTF-8
