@@ -72,4 +72,4 @@ USER ff
 VOLUME "/home/ff/Downloads"
 
 # Autorun Firefox
-CMD /home/ff/startup.sh
+ENTRYPOINT /home/ff/startup.sh
