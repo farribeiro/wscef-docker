@@ -21,5 +21,5 @@ services:
       - /dev/shm:/dev/shm
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ${XAUTHORITY}:/tmp/.docker.xauth:ro
-      - ~/BankFiles:/home/ff/Downloads
+      - ${BANKFILES}:/home/ff/Downloads
       - /etc/machine-id:/etc/machine-id:ro
