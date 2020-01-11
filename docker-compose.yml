@@ -8,6 +8,7 @@ services:
       - /dev/snd:/dev/snd
     environment:
       - LANG=pt_BR.UTF-8
+      - TZ=${TZ}
       - DISPLAY=${DISPLAY}
       - XAUTHORITY=/home/ff/.Xauthority
       - HOST_HOSTNAME=${HOSTNAME}
