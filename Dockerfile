@@ -44,7 +44,7 @@ RUN apt-get update && \
 		xauth \
 		zenity \
 	# Setup locale
-	&& echo "pt_BR.UTF-8 UTF-8" > /etc/locale.gen \
+	&& echo ${LANG} > /etc/locale.gen \
 	&& locale-gen \
 	# Downloading warsaw
 	&& mkdir -p /src \
