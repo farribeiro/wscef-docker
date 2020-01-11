@@ -58,10 +58,11 @@ RUN apt-get update && \
 	&& echo 'ff ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
 	&& echo 'Defaults !requiretty' >> /etc/sudoers \
 	&& echo root:wscef | chpasswd \
+	# Cleanup
+	&& apt remove --purge -y wget \
 	&& apt autoremove -y \
 	&& apt clean \
-	&& rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
-	&& apt remove --purge -y wget
+	&& rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 # Run Firefox as non privileged user
 USER ff
