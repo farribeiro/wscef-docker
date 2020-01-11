@@ -28,7 +28,7 @@ since environments and volumes are set on `docker-compose.yml`.
 **To force replace the container:** `docker-compose up --force-recreate`, thanks[1]
 
 **PS:** Reports that the warsaw daemon for CEF works for the BB site:
-https://github.com/farribeiro/wscef-docker/issues/9#issuecomment-308244119
+https://github.com/farribeiro/wscef-docker/issues/9#issuecomment-308244119 and Sicredi ( https://github.com/farribeiro/wscef-docker/pull/72#issuecomment-573244722)
 
 ~~**PS:** you must run Docker using a GNU/Linux distro running xorg.
 Be aware some installations may run another display server, such as Wayland.~~
