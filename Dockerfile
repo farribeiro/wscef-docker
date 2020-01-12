@@ -14,6 +14,7 @@ COPY startup.sh /home/ff/
 RUN apt-get update && \
 	apt-get install -y --no-install-recommends \
 		locales \
+		tzdata \
 		ca-certificates \
 		wget \
 		firefox-esr \
