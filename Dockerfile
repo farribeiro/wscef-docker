@@ -63,8 +63,7 @@ RUN apt-get update && \
 	# Cleanup
 	&& apt remove --purge -y wget \
 	&& apt autoremove -y \
-	&& apt clean \
-	&& rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+	&& apt clean
 
 # Run Firefox as non privileged user
 USER ff
@@ -73,4 +72,4 @@ USER ff
 VOLUME "/home/ff/Downloads"
 
 # Autorun Firefox
-CMD /home/ff/startup.sh
+ENTRYPOINT /home/ff/startup.sh
