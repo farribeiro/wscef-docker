@@ -10,6 +10,7 @@ Federal and Sicredi.
 
 - Docker and Docker-Compose of your distro.
 - Set BANKFILES variable (as `export BANKFILES=/home/ff/Downloads/Bankfiles`) to prevent volume creation error
+- For transparency, privacy and security NEVER USE ANY PRE-BUILT DOCKER IMAGE FROM THIS PROJECT. Obtain a copy of the source code of this repository, check the content and build your own image.
 
 ## Instructions
 
