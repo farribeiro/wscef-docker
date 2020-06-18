@@ -50,7 +50,7 @@ RUN echo ${LANG} > /etc/locale.gen \
 	&& locale-gen
 	# Downloading warsaw
 RUN mkdir -p /src
-ADD wget https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb -O /src/GBPCEFwr64.deb
+ADD https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb /src/GBPCEFwr64.deb
 	# Configuring the environment
 RUN mkdir -p /home/${USER} \
 	&& chmod 744 /home/ff/startup.sh \
