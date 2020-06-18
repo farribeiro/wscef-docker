@@ -18,7 +18,6 @@ RUN apt-get update && \
 		locales \
 		tzdata \
 		ca-certificates \
-		wget \
 		firefox-esr \
 		firefox-esr-l10n-pt-br \
 		# libc6 \
@@ -50,8 +49,8 @@ RUN apt-get update && \
 RUN echo ${LANG} > /etc/locale.gen \
 	&& locale-gen
 	# Downloading warsaw
-RUN mkdir -p /src \
-	&& wget https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb -O /src/GBPCEFwr64.deb
+RUN mkdir -p /src
+ADD wget https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb -O /src/GBPCEFwr64.deb
 	# Configuring the environment
 RUN mkdir -p /home/${USER} \
 	&& chmod 744 /home/ff/startup.sh \
