@@ -45,15 +45,15 @@ RUN apt-get update && \
 		# sed \
 		sudo \
 		xauth \
-		zenity \
+		zenity
 	# Setup locale
-	&& echo ${LANG} > /etc/locale.gen \
-	&& locale-gen \
+	RUN echo ${LANG} > /etc/locale.gen \
+	&& locale-gen
 	# Downloading warsaw
-	&& mkdir -p /src \
-	&& wget https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb -O /src/GBPCEFwr64.deb \
+	RUN mkdir -p /src \
+	&& wget https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb -O /src/GBPCEFwr64.deb
 	# Configuring the environment
-	&& mkdir -p /home/${USER} \
+	RUN mkdir -p /home/${USER} \
 	&& chmod 744 /home/ff/startup.sh \
 	&& groupadd -g ${GUID} -r ${USER} \
 	&& useradd -u ${GUID} -r -g ${USER} -G audio,video ${USER} -d /home/${USER} \
