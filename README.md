@@ -10,6 +10,7 @@ Federal and Sicredi.
 
 - Docker and Docker-Compose of your distro.
 - Set BANKFILES variable (as `export BANKFILES=/home/ff/Downloads/Bankfiles`) to prevent volume creation error
+- For transparency, privacy and security NEVER USE ANY PRE-BUILT DOCKER IMAGE FROM THIS PROJECT. Obtain a copy of the source code of this repository, check the content and build your own image.
 
 ## Instructions
 
@@ -17,8 +18,6 @@ Use docker compose to build and run the docker container, rather than `docker ru
 since environments and volumes are set on `docker-compose.yml`.
 
 **To build:** `docker-compose build wscef`
-
-**To pulling existing image:** `docker-compose pull`
 
 **To first run:** `docker-compose run --name wscef wscef`
 
