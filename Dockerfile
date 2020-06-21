@@ -61,7 +61,6 @@ RUN mkdir -p /home/${USER} \
 	&& echo 'Defaults !requiretty' >> /etc/sudoers \
 	&& echo root:wscef | chpasswd \
 	# Cleanup
-	&& apt remove --purge -y wget \
 	&& apt autoremove -y \
 	&& apt clean
 
