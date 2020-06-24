@@ -18,7 +18,6 @@ RUN apt-get update && \
 		locales \
 		tzdata \
 		ca-certificates \
-		wget \
 		firefox-esr \
 		firefox-esr-l10n-pt-br \
 		libnss3-tools \
@@ -29,15 +28,15 @@ RUN apt-get update && \
 		python3 \
 		sudo \
 		xauth \
-		zenity \
+		zenity
 	# Setup locale
-	&& echo ${LANG} > /etc/locale.gen \
-	&& locale-gen \
+RUN echo ${LANG} > /etc/locale.gen \
+	&& locale-gen
 	# Downloading warsaw
-	&& mkdir -p /src \
-	&& wget https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb -O /src/GBPCEFwr64.deb \
+RUN mkdir -p /src
+ADD https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb /src/GBPCEFwr64.deb
 	# Configuring the environment
-	&& mkdir -p /home/${USER} \
+RUN mkdir -p /home/${USER} \
 	&& chmod 744 /home/ff/startup.sh \
 	&& groupadd -g ${GUID} -r ${USER} \
 	&& useradd -u ${GUID} -r -g ${USER} -G audio,video ${USER} -d /home/${USER} \
@@ -46,7 +45,6 @@ RUN apt-get update && \
 	&& echo 'Defaults !requiretty' >> /etc/sudoers \
 	&& echo root:wscef | chpasswd \
 	# Cleanup
-	&& apt remove --purge -y wget \
 	&& apt autoremove -y \
 	&& apt clean
 
