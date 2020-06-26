@@ -9,7 +9,7 @@ ENV USER=ff
 
 ENV GUID=1000
 
-ENV LANG=pt_BR.UTF-8
+ENV LANG="pt_BR.UTF-8 UTF-8"
 
 COPY startup.sh /home/ff/
 
