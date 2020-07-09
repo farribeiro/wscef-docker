@@ -11,8 +11,6 @@ ENV GUID=1000
 
 ENV LANG="pt_BR.UTF-8 UTF-8"
 
-COPY startup.sh /home/ff/
-
 RUN apt-get update && \
 	apt-get install -y --no-install-recommends \
 		locales \
@@ -26,7 +24,6 @@ RUN apt-get update && \
 		python-gpg \
 		python-openssl \
 		python3 \
-		sudo \
 		xauth \
 		zenity
 	# Setup locale
@@ -37,22 +34,22 @@ RUN mkdir -p /src
 ADD https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb /src/GBPCEFwr64.deb
 	# Configuring the environment
 RUN mkdir -p /home/${USER} \
-	&& chmod 744 /home/ff/startup.sh \
 	&& groupadd -g ${GUID} -r ${USER} \
 	&& useradd -u ${GUID} -r -g ${USER} -G audio,video ${USER} -d /home/${USER} \
 	&& chown -R ${GUID}:${GUID} /home/${USER} \
-	&& echo 'ff ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
-	&& echo 'Defaults !requiretty' >> /etc/sudoers \
-	&& echo root:wscef | chpasswd \
 	# Cleanup
 	&& apt autoremove -y \
 	&& apt clean
 
-# Run Firefox as non privileged user
-USER ff
+RUN apt -y install /src/GBPCEFwr64.deb || :
 
-# Add volume for recipes PDFs
+COPY root.sh /usr/local/bin/
+COPY startup.sh /usr/local/bin/
+RUN chmod 700 /usr/local/bin/root.sh \
+    && chmod 755 /usr/local/bin/startup.sh
+
+# Add volume for receipts PDFs
 VOLUME "/home/ff/Downloads"
 
 # Autorun Firefox
-ENTRYPOINT /home/ff/startup.sh
+ENTRYPOINT /usr/local/bin/root.sh
