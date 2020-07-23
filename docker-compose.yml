@@ -25,6 +25,7 @@ services:
           memory: 512M
     shm_size: 2g
     volumes:
+      - /dev/bus/usb:/dev/bus/usb
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ${XAUTHORITY}:/tmp/.docker.xauth:ro
       - ${BANKFILES}:/home/ff/Downloads
