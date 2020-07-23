@@ -1,18 +1,31 @@
-version: '2'
+version: '3.7'
 services:
   wscef:
+    container_name: wscef
     image: farribeiro/wscef-docker
     build: .
-    devices:
-      - /dev/snd:/dev/snd
+    init: true
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETUID
+      - SETGID
+      - AUDIT_WRITE
+      - DAC_OVERRIDE
+    security_opt:
+      - no-new-privileges:true
     environment:
+      - LANG=pt_BR.UTF-8
+      - TZ=${TZ}
       - DISPLAY=${DISPLAY}
-      - XAUTHORITY=/home/ff/.Xauthority
-      - HOST_HOSTNAME=${HOSTNAME}
-    cpuset: '0'
-    mem_limit: 512M
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+    shm_size: 2g
     volumes:
-      - /dev/shm:/dev/shm
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ${XAUTHORITY}:/tmp/.docker.xauth:ro
-      - ~/BankFiles:/home/ff/Downloads
+      - ${BANKFILES}:/home/ff/Downloads
+      - /etc/machine-id:/etc/machine-id:ro
