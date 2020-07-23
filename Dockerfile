@@ -1,12 +1,8 @@
 # Run Warsaw in a container
-
 # Base docker image
-FROM ubuntu:latest
+FROM debian:buster-slim
+
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
-
-COPY startup.sh /home/ff/
-
-# Install Firefox
 
 ADD	\
 	# https://s3-sa-east-1.amazonaws.com/shared-www.validcertificadora.com.br/libjbig0_2.0-2_amd64.deb \
@@ -20,37 +16,61 @@ ADD	\
 	http://www.digitalsigncertificadora.com.br/repositorio/downloads/SafeSignIC3.0.116-x86_64-ub14-tc-admin.deb \
 	/src/
 
-RUN apt-get update \
-	&& apt-get upgrade -y \
-	&& apt-get install -y \
-	language-pack-pt \
-	openssl \
-	libnss3-tools \
-	firefox \
-	firefox-locale-pt \
-	xauth \
-	opensc \
-	libopensc-openssl \
-	pcscd \
-	pcsc-tools \
-	--no-install-recommends \
-	&& apt -y install /src/*.deb \
-	&& groupadd -g 1000 -r ff \
-	&& useradd -u 1000 -r -g ff -G audio,video ff -d /home/ff \
-	&& chmod 744 /home/ff/startup.sh \
-	&& chown -R ff:ff /home/ff \
-	&& passwd -d root \
-	&& apt-get purge --auto-remove -y \
-	&& rm -rf /var/lib/apt/lists/* \
-	&& rm -rf /src/*.deb
+ENV USER=ff
 
-ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/
+ENV GUID=1000
 
-# Run firefox as non privileged user
-USER ff
+ENV LANG="pt_BR.UTF-8 UTF-8"
 
-# Add volume for recipes PDFs
+RUN apt-get update && \
+	apt-get install -y --no-install-recommends \
+		locales \
+		tzdata \
+		ca-certificates \
+		firefox-esr \
+		firefox-esr-l10n-pt-br \
+		libnss3-tools \
+		openssl \
+		procps \
+		python-gpg \
+		python-openssl \
+		python3 \
+		xauth \
+		zenity \
+		opensc \
+		libopensc-openssl \
+		pcscd \
+		pcsc-tools
+
+# Setup locale
+RUN echo ${LANG} > /etc/locale.gen \
+	&& locale-gen
+
+# Downloading warsaw
+RUN mkdir -p /src
+
+ADD https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb /src/GBPCEFwr64.deb
+
+# Configuring the environment
+RUN mkdir -p /home/${USER} \
+	&& groupadd -g ${GUID} -r ${USER} \
+	&& useradd -u ${GUID} -r -g ${USER} -G audio,video ${USER} -d /home/${USER} \
+	&& chown -R ${GUID}:${GUID} /home/${USER} \
+	# Cleanup
+	&& apt autoremove -y \
+	&& apt clean
+
+RUN apt -y install /src/GBPCEFwr64.deb || :
+
+COPY root.sh /usr/local/bin/
+
+COPY startup.sh /usr/local/bin/
+
+RUN chmod 700 /usr/local/bin/root.sh \
+    && chmod 755 /usr/local/bin/startup.sh
+
+# Add volume for receipts PDFs
 VOLUME "/home/ff/Downloads"
 
-# Autorun chrome
-CMD [ "/home/ff/startup.sh" ]
+# Autorun Firefox
+ENTRYPOINT /usr/local/bin/root.sh
