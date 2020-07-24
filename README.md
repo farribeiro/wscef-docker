@@ -2,9 +2,7 @@
 
 [![Join the chat at https://gitter.im/farribeiro/wscef-docker](https://badges.gitter.im/farribeiro/wscef-docker.svg)](https://gitter.im/farribeiro/wscef-docker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Warsaw in docker container. Warsaw is a security module, a.k.a Guardião, for brazilian
-internet banking. This project is compatible of Banco do Brasil, Caixa Econômica
-Federal and Sicredi.
+Warsaw in docker container. Warsaw is a security module, a.k.a Guardião, for brazilian internet banking. This project is compatible of Banco do Brasil, Caixa Econômica Federal and Sicredi.
 
 ## Pre-requisites
 
@@ -14,8 +12,7 @@ Federal and Sicredi.
 
 ## Instructions
 
-Use docker compose to build and run the docker container, rather than `docker run`, 
-since environments and volumes are set on `docker-compose.yml`.
+Use docker compose to build and run the docker container, rather than `docker run`, since environments and volumes are set on `docker-compose.yml`.
 
 **To build:** `docker-compose build wscef`
 
@@ -31,9 +28,8 @@ since environments and volumes are set on `docker-compose.yml`.
 - BB site: https://github.com/farribeiro/wscef-docker/issues/9#issuecomment-308244119 
 - Sicredi ( https://github.com/farribeiro/wscef-docker/pull/72#issuecomment-573244722)
 
-~~**PS:** you must run Docker using a GNU/Linux distro running xorg.
-Be aware some installations may run another display server, such as Wayland.~~
 
+**PS:** ~~you must run Docker using a GNU/Linux distro running xorg. Be aware some installations may run another display server, such as Wayland.~~
 The latest firefox release support wayland, not tested with xauth
 
 **PS:** The root password is **wscef** by https://github.com/farribeiro/wscef-docker/issues/29
