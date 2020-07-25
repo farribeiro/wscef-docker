@@ -5,11 +5,11 @@ FROM debian:buster-slim
 
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
-ENV USER=ff
+ARG USER=ff
 
-ENV GUID=1000
+ARG GUID=1000
 
-ENV LANG="pt_BR.UTF-8 UTF-8"
+ARG LANG="pt_BR.UTF-8 UTF-8"
 
 RUN apt-get update && \
 	apt-get install -y --no-install-recommends \
@@ -37,11 +37,15 @@ RUN mkdir -p /home/${USER} \
 	&& groupadd -g ${GUID} -r ${USER} \
 	&& useradd -u ${GUID} -r -g ${USER} -G audio,video ${USER} -d /home/${USER} \
 	&& chown -R ${GUID}:${GUID} /home/${USER} \
+	&& mkdir -p /run/user/${GUID} \
+	&& chown ${GUID}:${GUID} /run/user/${GUID} \
+	&& chmod 700 /run/user/${GUID} \
 	# Cleanup
 	&& apt autoremove -y \
 	&& apt clean
 
-RUN apt -y install /src/GBPCEFwr64.deb || :
+RUN rm /bin/systemctl \
+	&& apt -y install /src/GBPCEFwr64.deb
 
 COPY root.sh /usr/local/bin/
 COPY startup.sh /usr/local/bin/
