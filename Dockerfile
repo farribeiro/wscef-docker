@@ -1,7 +1,7 @@
 # Run Warsaw in a container
 
 # Base docker image
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
