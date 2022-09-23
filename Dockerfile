@@ -12,6 +12,8 @@ ARG GUID=1000
 ARG LANG="pt_BR.UTF-8 UTF-8"
 
 RUN apt-get update && \
+	apt-get upgrade -y && \
+	apt-get install init -y && \
 	apt-get install -y --no-install-recommends \
 		locales \
 		tzdata \
