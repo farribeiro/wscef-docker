@@ -13,7 +13,7 @@ ARG LANG="pt_BR.UTF-8 UTF-8"
 
 RUN apt-get update && \
 	apt-get upgrade -y && \
-	apt-get install init -y && \
+	apt-get install init systemd -y && \
 	apt-get install -y --no-install-recommends \
 		locales \
 		tzdata \
@@ -26,7 +26,6 @@ RUN apt-get update && \
 		python3-gpg \
 		python3-openssl \
 		python3 \
-		systemd \
 		xauth \
 		zenity
 	# Setup locale
