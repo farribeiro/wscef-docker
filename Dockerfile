@@ -20,12 +20,14 @@ RUN apt-get update && \
 		ca-certificates \
 		firefox-esr \
 		firefox-esr-l10n-pt-br \
+		init \
 		libnss3-tools \
 		openssl \
 		procps \
 		python-gpg \
 		python-openssl \
 		python3 \
+		systemd \
 		xauth \
 		zenity
 	# Setup locale
