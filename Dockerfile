@@ -20,7 +20,6 @@ RUN apt-get update && \
 		ca-certificates \
 		firefox-esr \
 		firefox-esr-l10n-pt-br \
-		init \
 		libnss3-tools \
 		openssl \
 		procps \
