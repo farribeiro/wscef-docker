@@ -47,8 +47,7 @@ RUN mkdir -p /home/${USER} \
 	&& apt autoremove -y \
 	&& apt clean
 
-RUN rm /bin/systemctl \
-	&& apt -y install /src/GBPCEFwr64.deb
+RUN apt -y install /src/GBPCEFwr64.deb
 
 COPY root.sh /usr/local/bin/
 COPY startup.sh /usr/local/bin/
