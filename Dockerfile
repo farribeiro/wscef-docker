@@ -24,8 +24,8 @@ RUN apt-get update && \
 		libnss3-tools \
 		openssl \
 		procps \
-		python-gpg \
-		python-openssl \
+		python3-gpg \
+		python3-openssl \
 		python3 \
 		systemd \
 		xauth \
