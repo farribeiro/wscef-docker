@@ -1,7 +1,7 @@
 # Run Warsaw in a container
 
 # Base docker image
-FROM debian: bookworm-slim
+FROM debian:bookworm-slim
 
 LABEL maintainer "Fabio Rodrigues Ribeiro <farribeiro@gmail.com>"
 
