@@ -33,7 +33,7 @@ RUN echo ${LANG} > /etc/locale.gen \
 	&& locale-gen
 	# Downloading warsaw
 RUN mkdir -p /src
-ADD https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb /src/GBPCEFwr64.deb
+ADD https://cloud.gastecnologia.com.br/bb/downloads/ws/warsaw_setup64.deb /src/GBPCEFwr64.deb
 	# Configuring the environment
 RUN mkdir -p /home/${USER} \
 	&& groupadd -g ${GUID} -r ${USER} \
